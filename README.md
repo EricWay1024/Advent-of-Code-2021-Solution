@@ -11,7 +11,7 @@ cd 1 # the date
 
 Notice:
 
-1. A code template is used throughout the project where some handy but terse macros are defined as shortcuts for various frequently used facilities.
+1. A code template is used throughout the project where some handy but terse macros are defined as shortcuts for various frequently used facilities (see `everything.hpp`).
 
 2. Despite the potential similarity between the solutions of two parts of the problem, all the code is provided on a copy-and-paste basis even if only slightest edition is required to transform a part 1 solution to a part 2 one. I choose to do so in order to keep a uniform format across different solutions.
 

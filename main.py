@@ -38,7 +38,7 @@ if __name__ == '__main__':
     with open(f'{day}/{day}.in', 'w') as fobj:
         fobj.write(res)
     
-    with open('template.cpp') as fobj:
+    with open('template/template.cpp') as fobj:
         cpp_template = fobj.read()
     
     cpp_code = cpp_template.replace('$$$.in', f'{day}.in')
