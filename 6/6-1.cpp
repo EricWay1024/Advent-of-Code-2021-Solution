@@ -1,7 +1,6 @@
 #include "../everything.hpp"
 
 int n;
-int a[N3];
 int b[N1];
 int c[N1];
 void one_day() {
@@ -11,16 +10,14 @@ void one_day() {
     rep(i,1,8) {
         c[i - 1] += b[i];
     }
-
     rep(i,0,8) b[i] = c[i];
 }
 
 void solve() {
-    n = 300;
-    rep(i,1,n) rin >> a[i];
-    rep(i,1,n) {
-        b[a[i]]++;
-    }
+    string s; cin >> s;
+    auto a = map_to_ll(split(s, ','));
+    for (auto i : a) b[i]++;
+
     rep(i,1,80) one_day();
     ll ans = 0;
     rep(i,0,8) {

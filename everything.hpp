@@ -72,3 +72,21 @@ void read_vec(vector<T> &a)
     while (cin >> t)
         a.emplace_back(t);
 }
+vector<string> split(string &str, char delim)
+{   
+    vector<string> out;
+	size_t start;
+	size_t end = 0;
+
+	while ((start = str.find_first_not_of(delim, end)) != string::npos)
+	{
+		end = str.find(delim, start);
+		out.push_back(str.substr(start, end - start));
+	}
+    return out;
+}
+vector<ll> map_to_ll(vector<string> v) {
+    vector<ll> u;
+    for (auto s: v) u.push_back(stoll(s));
+    return u;
+}
