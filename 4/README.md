@@ -1,0 +1,3 @@
+# Problem 4
+
+We use an array of `vector<tuple<int, int, int>>` called `mp` to store the location of each number that have appeared. For each number drawn, traverse all the locations that it appears and mark this location if it is unmarked. Arrarys `row` and `col` are used to record the number of marked entries of a row or column of a board, and once the number reaches 5 in any row or column of a borad, this board wins. The only differences between part 1 and 2 is that in part 1 we count and output the score the first time we win a borad, but in part 2 we only do so when the number of boards we win reach the number of all boards (a `set` is used for this purpose).

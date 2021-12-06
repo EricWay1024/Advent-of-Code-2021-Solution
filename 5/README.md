@@ -1,0 +1,3 @@
+# Problem 5
+
+We use an array `game` to record the number of lines that cover each point. The only difficuly is to find a way to traverse each point for each line. In part 1 we consider horizontal and vertical lines separately; in part 2 two new cases, i.e. lines with slope 1 and -1 are added. By observation all the coordinates of the input are within range [0, 1000], so it suffices to traverse only these coordinates when we count the answer in the end.
