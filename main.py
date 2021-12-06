@@ -43,5 +43,6 @@ if __name__ == '__main__':
     
     cpp_code = cpp_template.replace('$$$.in', f'{day}.in')
 
-    with open(f'{day}/{day}.cpp', 'w') as fobj:
-        fobj.write(cpp_code)
+    for i in [1, 2]:
+        with open(f'{day}/{day}-{i}.cpp', 'w') as fobj:
+            fobj.write(cpp_code)

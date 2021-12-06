@@ -1,22 +1,11 @@
 #include "../everything.hpp"
 
-namespace one {
-    void solve () {
-
-    }
-}
-
-namespace two {
-    void solve () {
-
-    }
+void solve() {
 
 }
 
 int main() {
     freopen("$$$.in", "r", stdin);
-    one::solve();
-    // two::solve();
-
+    solve();
     return 0;
 }
