@@ -62,14 +62,8 @@ Thus we define
 map<char, int> cnt; // cnt[c] is the number of occurrences of character c in the given signal patterns
 ```
 
-and `ans['b']`, `ans['e']` and `ans['f']` can be deduced directly from `cnt`, because `cnt[c] == 6` implies `ans['b'] = c` and so on. Also since we have already figured out `ans['a']`, another `c` such that `cnt[c] == 8` must have `ans['c'] = c`.
+and `ans['b']`, `ans['e']` and `ans['f']` can be deduced directly from `cnt`, because `cnt[c] == 6` implies `ans['b'] = c` and so on. Also since we have already figured out `ans['a']`, another `c` such that `cnt[c] == 8` must have `ans['c'] = c`. To distinguish between `d` and `g`, notice that `d` occurs in 4 while `g` does not.
 
-We still have to distinguish between `d` and `g`. I achieve this by counting the co-occurrences of each letter with `ans['a']`, since the number should be 6 for `d` but 7 for `g`.
-
-```cpp
-map<char, int> cntwa; // cntwa[c] is the number of occurrences of character c in the signal patterns where ans['a'] occurs
-```
-
-So we are finished with `ans`. Using `mp` and `ans` we can fully deduce `dict`: any pattern with length 5 and has `ans['c']` and `ans['e']` in it must be that of 2, and so on.
+So we are finished with `ans`. Using `mp` and `ans` we can fully deduce `dict`: any pattern with length 5 and with `ans['c']` and `ans['e']` in it must be that of 2, and so on.
 
 Notice in order to have the four digit output value directly correspond to a key in `dict`, we must sort every string we get from input.

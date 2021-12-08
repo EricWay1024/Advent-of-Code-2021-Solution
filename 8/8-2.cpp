@@ -10,40 +10,30 @@ void solve() {
     while (1) {
         map<int, vector<string>> mp;
         map<char, int> cnt;
-        map<char, int> cntwa;
         map<char, char> ans;
         map<string, int> dict;
-        vector<string> all_str;
 
         string s;
         rep(i,1,10) {
             cin >> s;
             sort(s.begin(), s.end());
             mp[s.size()].push_back(s);
-            all_str.push_back(s);
             for (char c: s) {
                 cnt[c]++;
             }
         }
 
-        dict[mp[2][0]] = 1;
-        dict[mp[4][0]] = 4;
-        dict[mp[3][0]] = 7;
+        auto seven = mp[3][0];
+        auto four = mp[4][0];
+        auto one = mp[2][0];
+
+        dict[one] = 1;
+        dict[four] = 4;
+        dict[seven] = 7;
         dict[mp[7][0]] = 8;
 
-        auto seven = mp[3][0];
         for (char c: seven) {
-            if (!in(c, mp[2][0])) ans['a'] = c;
-        }
-
-        for (auto s: all_str) {
-            bool k = 0;
-            for (char c: s) {
-                if (c == ans['a']) k = 1;
-            }
-            if (k) {
-                for (char c: s) cntwa[c]++;
-            }
+            if (!in(c, one)) ans['a'] = c;
         }
 
         for (auto [c, i]: cnt) {
@@ -51,8 +41,10 @@ void solve() {
             if (i == 6) ans['b'] = c;
             if (i == 4) ans['e'] = c;
             if (i == 9) ans['f'] = c;
-            if (i == 7 && cntwa[c] == 6) ans['d'] = c;
-            if (i == 7 && cntwa[c] == 7) ans['g'] = c;
+            if (i == 7) {
+                if (in(c, four)) ans['d'] = c;
+                else ans['g'] = c;
+            }
         }
 
         for (auto s: mp[5]) {
@@ -62,9 +54,9 @@ void solve() {
         }
 
         for (auto s: mp[6]) {
-            if (in(ans['c'], s) && in(ans['e'], s)) dict[s] = 0;
-            if (in(ans['d'], s) && in(ans['e'], s)) dict[s] = 6;
-            if (in(ans['c'], s) && in(ans['d'], s)) dict[s] = 9;
+            if (!in(ans['d'], s)) dict[s] = 0;
+            if (!in(ans['c'], s)) dict[s] = 6;
+            if (!in(ans['e'], s)) dict[s] = 9;
         }
 
         cin >> s;
