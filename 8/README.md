@@ -40,12 +40,12 @@ map<int, vector<string>> mp; // mp[k] is all signal patterns with length k
 Next we must try to figure out 
 
 ```cpp
-map<char, char> ans; // ans[c] is the segment in the given pattern corresponding to c in the standard pattern
+map<char, char> ans; // ans[c] is the segment in the given pattern corresponding to segment c in the standard pattern
 ```
 
 We first notice that `ans['a']` is the character which appears in the pattern for `7` but not in for `1`.
 
-Then let us count the occurrences of each segments in the given pattern, as we find that in the standard pattern, each segment has the following occurrences:
+Then let us count the occurrences of each segments in the ten given patterns, as we find that in the ten standard patterns, each segment has the following occurrences:
 
 ```
 a: 8
@@ -64,7 +64,7 @@ map<char, int> cnt; // cnt[c] is the number of occurrences of character c in the
 
 and `ans['b']`, `ans['e']` and `ans['f']` can be deduced directly from `cnt`, because `cnt[c] == 6` implies `ans['b'] = c` and so on. Also since we have already figured out `ans['a']`, another `c` such that `cnt[c] == 8` must have `ans['c'] = c`.
 
-We still have to distinguish between `d` and `g`. I achieve this by counting the co-occurrences of each letter with `ans['a']`, since the number should be 6 for d but 7 for g.
+We still have to distinguish between `d` and `g`. I achieve this by counting the co-occurrences of each letter with `ans['a']`, since the number should be 6 for `d` but 7 for `g`.
 
 ```cpp
 map<char, int> cntwa; // cntwa[c] is the number of occurrences of character c in the signal patterns where ans['a'] occurs
