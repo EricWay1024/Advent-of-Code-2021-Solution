@@ -45,7 +45,7 @@ map<char, char> ans; // ans[c] is the segment in the given pattern corresponding
 
 We first notice that `ans['a']` is the character which appears in the pattern for `7` but not in for `1`.
 
-Then let us count the occurrences of each segments in the ten given patterns, as we find that in the ten standard patterns, each segment has the following occurrences:
+Then let us count the occurrences of each segment in the ten given patterns, as we find that in the ten standard patterns, each segment has the following occurrences:
 
 ```
 a: 8
