@@ -5,6 +5,7 @@ using namespace std;
 #define For(i, to) for (int i = 0; i < (int)(to); ++i)
 #define endl '\n'
 #define coutP(i) cout << fixed << setprecision(i)
+#define whileneof while((cin >> ws) && (~cin.peek()))
 void dbg()
 {
     cerr << "\n";

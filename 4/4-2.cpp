@@ -11,14 +11,12 @@ void solve() {
     string s; cin >> s;
     auto a = map_to_ll(split(s, ','));
     int m = 0;
-    while (1) {
+    whileneof {
         m++;
         rep(j,1,5) rep(k,1,5) {
             cin >> b[m][j][k]; 
             mp[b[m][j][k]].push_back(make_tuple(m, j, k)); 
         }
-        cin >> ws;
-        if (!~cin.peek()) break;
     }
 
     for (auto u : a) {
