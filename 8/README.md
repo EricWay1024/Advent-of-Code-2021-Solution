@@ -67,3 +67,5 @@ and `ans['b']`, `ans['e']` and `ans['f']` can be deduced directly from `cnt`, be
 So we are finished with `ans`. Using `mp` and `ans` we can fully deduce `dict`: any pattern with length 5 and with `ans['c']` and `ans['e']` in it must be that of 2, and so on.
 
 Notice in order to have the four digit output value directly correspond to a key in `dict`, we must sort every string we get from input.
+
+There is also a brutal way to solve part 2 (see `8-2-brutal.cpp`): traverse each possible `ans` (which has only 7!=5040 permutations) and check if using this permutation we can get the standard patterns.

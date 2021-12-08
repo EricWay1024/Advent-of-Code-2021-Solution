@@ -2,7 +2,7 @@
 
 void solve() {
     int m = 0;
-    while (1) {
+    whileneof {
         string s;
         rep(i,1,10) cin >> s;
         cin >> s;
@@ -11,8 +11,6 @@ void solve() {
             auto sz = s.size();
             if (sz == 7 || sz == 3 || sz == 2 || sz == 4) m++;
         }
-        cin >> ws;
-        if (cin.peek() == -1) break;
     }
     cout << m << endl;
 }

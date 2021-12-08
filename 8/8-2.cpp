@@ -7,7 +7,7 @@ bool in(char c, string &s) {
 void solve() {
     ll res = 0;
 
-    while (1) {
+    whileneof {
         map<int, vector<string>> mp;
         map<char, int> cnt;
         map<char, char> ans;
@@ -26,7 +26,6 @@ void solve() {
         auto seven = mp[3][0];
         auto four = mp[4][0];
         auto one = mp[2][0];
-
         dict[one] = 1;
         dict[four] = 4;
         dict[seven] = 7;
@@ -60,7 +59,6 @@ void solve() {
         }
 
         cin >> s;
-
         ll t = 0;
         rep(i,1,4) {
             cin >> s;
@@ -68,13 +66,9 @@ void solve() {
             t *= 10;
             t += dict[s];
         }
-
         res += t;
-        // logs(t);
-        
-        cin >> ws;
-        if (cin.peek() == -1) break;
     }
+
     cout << res << endl;
 }
 
