@@ -4,6 +4,7 @@
 import requests
 import datetime
 import os
+import time
 
 def get_input(day: int) -> str:
     cookies = {
@@ -23,8 +24,16 @@ def get_input(day: int) -> str:
     response = requests.get(f'https://adventofcode.com/2021/day/{day}/input', headers=headers, cookies=cookies)
     return response.text
 
+
+def wait_until_open(local_open_hour=5):
+    while datetime.datetime.now().hour < local_open_hour:
+        print('waiting')
+        time.sleep(1)
+
+
 if __name__ == '__main__':
     day = datetime.date.today().day
+    wait_until_open()
     res = get_input(day)
     if res.startswith('Please don\'t re'):
         print('Not open yet...')
