@@ -61,7 +61,7 @@ void solve() {
     cout << res << endl;
 }
 
-signed main() {
+int main() {
     freopen("14.in", "r", stdin);
     solve();
     return 0;
