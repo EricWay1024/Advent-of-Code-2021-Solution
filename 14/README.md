@@ -12,6 +12,6 @@ For example, when `NNCB` has run 2 insertion steps, we have `NBCCNBBBCBHCB`. Tha
 
 Hence the occurences of letter `i + 'A'` in string `s` after `k` steps is
 
-`sum(mem[s[j]-'A'][s[j+1]-'A'][k][i] for j in [0, 1, ..., s.size() - 2]) + (s[0] == i)`. The first letter of the entire string is counted separately.
+`sum(mem[s[j]-'A'][s[j+1]-'A'][k][i] for j in [0, 1, ..., s.size() - 2]) + (s[0] == i + 'A')`. The first letter of the entire string is counted separately.
 
 `long long` must be used for part 2.
