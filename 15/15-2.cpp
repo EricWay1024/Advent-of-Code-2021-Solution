@@ -1,7 +1,6 @@
 #include "../everything.hpp"
 
 vector<string> game;
-vector<vector<ll>> vis;
 queue<pii> q;
 
 const int d[4][2] = {
@@ -36,10 +35,8 @@ void solve() {
     game = make_game();
     n *= 5;
     m *= 5;
-    For(i, n) {
-        vis.push_back(vector<ll>(m, INT64_MAX));
-    }
 
+    vector<vll> vis(n, vll(m, INT64_MAX));
     q.push(make_pair(0, 0));
     vis[0][0] = 0;
     while (q.size()) {
