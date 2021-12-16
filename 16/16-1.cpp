@@ -7,42 +7,38 @@ string t;
 
 int cur;
 
-#define rd() (t[cur++] - '0')
-#define rn(x, n) For(_, n) { x <<= 1; x += rd(); }
+int rn(int n) {
+    int x = 0;
+    For(_, n) { x <<= 1; x += (t[cur++] - '0'); }
+    return x;
+}
 
 int res = 0;
 
 void read_p() {
-    int V = 0;
-    rn(V, 3);
-
+    int V = rn(3);
     res += V;
-
-    int T = 0;
-    rn(T, 3);
+    int T = rn(3);
 
     if (T == 4) {
         while (true) {
-            int flag = rd();
-            int A = 0;
-            rn(A, 4);
+            int flag = rn(1);
+            int A = rn(4);
             if (!flag) break;
         }
     }
 
     else {
-        int I = rd();
+        int I = rn(1);
         if (I) {
-            int L = 0;
-            rn(L, 11);
+            int L = rn(11);
             For(i, L) {
                 read_p();
             }
         }
 
         else {
-            int L = 0;
-            rn(L, 15);
+            int L = rn(15);
             int x = cur + L;
             while (cur < x) {
                 read_p();
@@ -76,7 +72,6 @@ void solve() {
 
     read_p();
     cout << res << endl;
-
 }
 
 int main() {

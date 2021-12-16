@@ -5,24 +5,23 @@ map<char, string> dict;
 string s;
 string t;
 
-ll cur;
+int cur;
 
-#define rd() (t[cur++] - '0')
-#define rn(x, n) For(_, n) { x <<= 1; x += rd(); }
+ll rn(int n) {
+    ll x = 0;
+    For(_, n) { x <<= 1; x += (t[cur++] - '0'); }
+    return x;
+}
 
 ll read_p() {
-    ll V = 0;
-    rn(V, 3);
-
-    ll T = 0;
-    rn(T, 3);
+    ll V = rn(3);
+    ll T = rn(3);
 
     if (T == 4) {
         ll B = 0;
         while (true) {
-            ll flag = rd();
-            ll A = 0;
-            rn(A, 4);
+            ll flag = rn(1);
+            ll A = rn(4);
             B <<= 4;
             B += A;
             if (!flag) break;
@@ -31,19 +30,17 @@ ll read_p() {
     }
 
     else {
-        ll I = rd();
+        ll I = rn(1);
         vector<ll> v;
         if (I) {
-            ll L = 0;
-            rn(L, 11);
+            ll L = rn(11);
             For(i, L) {
                 v.push_back(read_p());
             }
         }
         
         else {
-            ll L = 0;
-            rn(L, 15);
+            ll L = rn(15);
             ll x = cur + L;
             while (cur < x) {
                 v.push_back(read_p());
