@@ -2,46 +2,17 @@
 using tiii = tuple<int, int, int>;
 using viii = vector<tuple<int, int, int>>;
 
-
-viii intersection(viii &v1, viii &v2){
-    viii v3;
-
-    std::sort(v1.begin(), v1.end());
-    std::sort(v2.begin(), v2.end());
-
-    std::set_intersection(v1.begin(),v1.end(),
-                          v2.begin(),v2.end(),
-                          back_inserter(v3));
-    return v3;
-}
-
-viii union_(viii &v1, viii &v2){
-    viii v3;
-
-    std::sort(v1.begin(), v1.end());
-    std::sort(v2.begin(), v2.end());
-
-    std::set_union(v1.begin(),v1.end(),
-                          v2.begin(),v2.end(),
-                          back_inserter(v3));
-    return v3;
-}
-
 vector<viii> trsfm(viii vs) {
     vector<viii> res;
 
     int a[3] = {0, 1, 2};
-
     do {
         For(s, 8) {
             viii u;
             for (auto p: vs) {
                 int b[3];
-                b[0] = get<0>(p);
-                b[1] = get<1>(p);
-                b[2] = get<2>(p);
+                tie(b[0], b[1], b[2]) = p;
                 int c[3];
-
                 For(i, 3) {
                     if ((s >> i) & 1) c[i] = -1;
                     else c[i] = 1;
@@ -56,24 +27,24 @@ vector<viii> trsfm(viii vs) {
 }
 
 viii cmpre(viii vs, viii us) {
-    set<tiii> diff;
+    map<tiii, int> diff;
     for (auto [vx, vy, vz]: vs) {
         for (auto [ux, uy, uz]: us) {
-            diff.insert(make_tuple(ux-vx, uy-vy, uz-vz));
+            int dx = ux-vx;
+            int dy = uy-vy;
+            int dz = uz-vz;
+            int &cnt = diff[make_tuple(dx, dy, dz)];
+            cnt++;
+            if (cnt == 12) {
+                for (auto [x, y, z]: vs) {
+                    us.emplace_back(x+dx, y+dy, z+dz);
+                }
+                sort(us.begin(), us.end());
+                us.resize(unique(us.begin(), us.end()) - us.begin());
+                return us;
+            }
         }
     }
-
-    for (auto [dx, dy, dz]: diff) {
-        viii nvs;
-        for (auto [x, y, z]: vs) {
-            nvs.emplace_back(x+dx, y+dy, z+dz);
-        }
-        auto res = intersection(nvs, us);
-        if (res.size() >= 12) {
-            return union_(nvs, us);
-        }
-    }
-
     viii emp;
     return emp;
 }
@@ -95,7 +66,7 @@ void solve() {
     bool first = 1;
     whileneof {
         string s; getline(cin, s);
-        if (s[0] == '-' && s[1] == '-' && s[2] == '-') {
+        if (s[0] == '-' && s[1] == '-') {
             if (first) {
                 first = 0;
             } else {
@@ -136,7 +107,6 @@ void solve() {
 
 int main() {
     freopen("19.in", "r", stdin);
-    // freopen("19.test", "r", stdin);
     solve();
     return 0;
 }
