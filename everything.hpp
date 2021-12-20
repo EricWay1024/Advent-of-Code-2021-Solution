@@ -91,3 +91,9 @@ vector<ll> map_to_ll(vector<string> v) {
     for (auto s: v) u.push_back(stoll(s));
     return u;
 }
+template<typename T>
+void output_vec(vector<T> &v, char delim='\n') {
+    for (auto x: v) {
+        cout << x << delim;
+    }
+}
