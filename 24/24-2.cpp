@@ -7,7 +7,7 @@ map<pair<int, int>, int> vis;
 vector<int> dfs(int cur, int z0) {
     if (vis[make_pair(cur, z0)]) return mem[make_pair(cur, z0)];
     vis[make_pair(cur, z0)] = 1;
-    if (cur == 14) {
+    if (cur == 13) {
         vector<int> res;
         rep(w, 1, 9) if (functions[cur](w, z0) == 0) {
             res.push_back(w);
@@ -31,14 +31,14 @@ vector<int> dfs(int cur, int z0) {
 
 int check(vector<int> res) {
     int z = 0;
-    rep(i,1,14) {
+    For(i, 14) {
         z = functions[i](res[i - 1], z);
     }
     return z;
 }
 
 void solve() {
-    auto res = dfs(1, 0);
+    auto res = dfs(0, 0);
     reverse(res.begin(), res.end());
     // logs(check(res));
     for (auto i: res) cout << i;

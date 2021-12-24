@@ -1,4 +1,4 @@
-int f1(int w, int z) {
+int f0(int w, int z) {
 	int x = 0, y = 0;
 	x *= 0;
 	x += z;
@@ -20,7 +20,7 @@ int f1(int w, int z) {
 	return z;
 }
 
-int f2(int w, int z) {
+int f1(int w, int z) {
 	int x = 0, y = 0;
 	x *= 0;
 	x += z;
@@ -42,7 +42,7 @@ int f2(int w, int z) {
 	return z;
 }
 
-int f3(int w, int z) {
+int f2(int w, int z) {
 	int x = 0, y = 0;
 	x *= 0;
 	x += z;
@@ -64,7 +64,7 @@ int f3(int w, int z) {
 	return z;
 }
 
-int f4(int w, int z) {
+int f3(int w, int z) {
 	int x = 0, y = 0;
 	x *= 0;
 	x += z;
@@ -86,7 +86,7 @@ int f4(int w, int z) {
 	return z;
 }
 
-int f5(int w, int z) {
+int f4(int w, int z) {
 	int x = 0, y = 0;
 	x *= 0;
 	x += z;
@@ -108,7 +108,7 @@ int f5(int w, int z) {
 	return z;
 }
 
-int f6(int w, int z) {
+int f5(int w, int z) {
 	int x = 0, y = 0;
 	x *= 0;
 	x += z;
@@ -130,7 +130,7 @@ int f6(int w, int z) {
 	return z;
 }
 
-int f7(int w, int z) {
+int f6(int w, int z) {
 	int x = 0, y = 0;
 	x *= 0;
 	x += z;
@@ -152,7 +152,7 @@ int f7(int w, int z) {
 	return z;
 }
 
-int f8(int w, int z) {
+int f7(int w, int z) {
 	int x = 0, y = 0;
 	x *= 0;
 	x += z;
@@ -174,7 +174,7 @@ int f8(int w, int z) {
 	return z;
 }
 
-int f9(int w, int z) {
+int f8(int w, int z) {
 	int x = 0, y = 0;
 	x *= 0;
 	x += z;
@@ -196,7 +196,7 @@ int f9(int w, int z) {
 	return z;
 }
 
-int f10(int w, int z) {
+int f9(int w, int z) {
 	int x = 0, y = 0;
 	x *= 0;
 	x += z;
@@ -218,7 +218,7 @@ int f10(int w, int z) {
 	return z;
 }
 
-int f11(int w, int z) {
+int f10(int w, int z) {
 	int x = 0, y = 0;
 	x *= 0;
 	x += z;
@@ -240,7 +240,7 @@ int f11(int w, int z) {
 	return z;
 }
 
-int f12(int w, int z) {
+int f11(int w, int z) {
 	int x = 0, y = 0;
 	x *= 0;
 	x += z;
@@ -262,7 +262,7 @@ int f12(int w, int z) {
 	return z;
 }
 
-int f13(int w, int z) {
+int f12(int w, int z) {
 	int x = 0, y = 0;
 	x *= 0;
 	x += z;
@@ -284,7 +284,7 @@ int f13(int w, int z) {
 	return z;
 }
 
-int f14(int w, int z) {
+int f13(int w, int z) {
 	int x = 0, y = 0;
 	x *= 0;
 	x += z;
@@ -308,7 +308,7 @@ int f14(int w, int z) {
 
 typedef int (*IntFunction) (int w, int z);
 IntFunction functions[] = {
-	f1,
+	f0,
 	f1,
 	f2,
 	f3,
@@ -321,6 +321,5 @@ IntFunction functions[] = {
 	f10,
 	f11,
 	f12,
-	f13,
-	f14 
+	f13 
 };

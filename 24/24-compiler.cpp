@@ -7,7 +7,7 @@ void compile() {
         if (op == "inp") {
             char c; cin >> c;
             if (cnt) puts("\treturn z;\n}\n");
-            printf("int f%d(int w, int z) {\n\tint x = 0, y = 0;\n", ++cnt, c);
+            printf("int f%d(int w, int z) {\n\tint x = 0, y = 0;\n", cnt++, c);
         } else {
             string t, r;
             cin >> t >> r;
@@ -29,9 +29,8 @@ void compile() {
 
     puts("typedef int (*IntFunction) (int w, int z);");
     puts("IntFunction functions[] = {");
-    puts("\tf1,");
 
-    rep(i,1,14) printf("\tf%d%c\n", i, i == 14 ? ' ' : ',');
+    For(i, 14) printf("\tf%d%c\n", i, i == 13 ? ' ' : ',');
     puts("};");
 }
 
