@@ -32,7 +32,7 @@ vector<int> dfs(int cur, int z0) {
 int check(vector<int> res) {
     int z = 0;
     For(i, 14) {
-        z = functions[i](res[i - 1], z);
+        z = functions[i](res[i], z);
     }
     return z;
 }
