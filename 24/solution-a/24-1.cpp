@@ -1,4 +1,4 @@
-#include "../everything.hpp"
+#include "../../everything.hpp"
 #include "./24-input.cpp"
 
 map<pair<int, int>, vector<int>> mem;
