@@ -2,9 +2,9 @@
 
 const int N = 4;
 const int ENERGY[] = {0, 1, 10, 100, 1000};
+const int COLS[] = {2, 4, 6, 8};
+const int M = 1e6 + 7;
 vector<string> v;
-vector<int> COLS = {2, 4, 6, 8};
-const int M = 1e6 + 100;
 
 struct State {
     vector<int> a[4];
@@ -16,6 +16,7 @@ struct State {
             For(j, N) {
                 a[i].push_back(v[j + 2][COLS[i] + 1] - 'A' + 1);
             }
+            reverse(a[i].begin(), a[i].end());
         }
         For(i, 11) b[i] = 0;
         expense = 0;
@@ -36,30 +37,20 @@ struct State {
         For(i, 4) {
             for (auto j: a[i]) {
                 res *= 113;
-                res += ((j * j + a[i][0]) ^ a[i].size());
+                res += j ^ a[i].size();
                 res %= M;
             }
         }
 
         For(i, 11) {
             if (b[i]) {
-                res *= 113;
-                res += (b[i] ^ i + 996);
+                res *= 1023;
+                res += b[i] ^ i;
                 res %= M;
             }
         }
 
         return (res + M) % M;
-    }
-
-    bool is_finish() {
-        For(i, 4) {
-            if (a[i].size() < N) return 0;
-            for (auto t: a[i]) {
-                if (t != i + 1) return 0;
-            }
-        }
-        return 1;
     }
 
     // void output() {
@@ -106,20 +97,24 @@ ll bfs() {
     ll ans = INT64_MAX;
     while (q.size()) {
         State x = q.front(); q.pop();
-        if (x.is_finish()) {
-            ans = min(ans, x.expense);
-            continue;
-        }
 
+        bool is_finish = 1;
         bool flag[4];
         For(i, 4) {
             flag[i] = 1;
+            if (x.a[i].size() < N) is_finish = 0;
             for (auto t: x.a[i]) {
                 if (t != i + 1) {
                     flag[i] = 0;
+                    is_finish = 0;
                     break;
                 }
             }
+        }
+
+        if (is_finish) {
+            ans = min(ans, x.expense);
+            continue;
         }
 
         For(i, 4) if (!flag[i]) {
@@ -141,9 +136,9 @@ ll bfs() {
             for (auto j: temp) {
                 State y = x;
                 ll step = N - y.a[i].size() + abs(c - j) + 1;
-                int t = y.a[i][0];
+                int t = y.a[i].back();
                 y.expense += step * ENERGY[t];
-                y.a[i].erase(y.a[i].begin());
+                y.a[i].pop_back();
                 y.b[j] = t;
                 try_push_to_q(y);
             }
@@ -171,7 +166,7 @@ ll bfs() {
                 ll step = N - y.a[i].size() + abs(c - j);
                 int t = i + 1;
                 y.expense += step * ENERGY[t];
-                y.a[i].insert(y.a[i].begin(), t);
+                y.a[i].push_back(t);
                 y.b[j] = 0;
                 try_push_to_q(y);
             }
